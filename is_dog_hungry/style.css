@@ -1,0 +1,34 @@
+body {
+    background-color: #FFF3CD;
+}
+
+/* h1 {
+   transform: translate(0%, -50%);
+   }
+ */
+
+.slika-kuce {
+    display: none;
+    position: fixed;
+    bottom: 0px;
+    left: 50%;
+    transform: translate(-50%);
+    opacity: 0.1;
+    /* box-shadow: 15px, 12px, 10px, 15px, grey; */
+    box-shadow: 0px 10px 20px 0px gray ;
+
+}
+
+button {
+    position: fixed;
+    left: 50%;
+    transform: translate(-50%);
+    top: 30%;
+    
+}
+
+
+
+
+
+

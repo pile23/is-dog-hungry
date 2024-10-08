@@ -1,0 +1,16 @@
+#sadrzaj:
+- zamisao
+- uraditi
+
+
+#uraditi:
+
+
+#zamisao:
+- stranica: nije_nahranjena.html
+- kad se stisne dugme, fetch salje info na neki nacin noudu da je nahranjeno kuce i ponovo se ucitava stranica tj trazi istu adresu a noud je zabelezio da je hranjena kuca i vraca drugaciji html dokument
+- tad noud vraca stranicu jeste_nahranjena.html koja ima animaciju kad se stranica ucita, animacij aje da se desi nesto sa slikom nasmejane kuce
+
+
+
+
