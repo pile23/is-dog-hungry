@@ -1,6 +1,6 @@
 console.log('\n--------------------\n');
 
-const http = require('node:http');
+const https = require('node:https');
 const fs = require('node:fs');
 
 
@@ -16,9 +16,21 @@ setInterval(() => {
 
 // cacekaj sati: 0 - sad, Kad je 0 sati resetuj varijablu. Tad pokreni, npr u funkciji interval od 24 sata da resetuje var.
 
-const server = http.createServer();
+// const options = {
+//   key: fs.readFileSync('./pem/private-key.pem'),
+//   cert: fs.readFileSync('./pem/certificate.pem'),
+// }
+
+const options = {
+  pfx: fs.readFileSync('./pem/test_cert.pfx'),
+  passphrase: 'sample',
+};
+
+const server = https.createServer(options);
 server.on('request', (req, res) => {
   const {method, url} = req;
+  
+  console.log('request');
 
   // routes
   switch (method) {
@@ -76,6 +88,7 @@ server.on('request', (req, res) => {
       break;
     } // sw(url)
     if (url.search(/\/slike/) == 0) {
+      // find file extension: (dot followed by char) that's at the end of the filename
       let file_extension = url.match(/(\.[a-z]+)$/g);
       let appropriate_mimeType = extMimeType[file_extension];
       fs.readFile(`.${url}`, (err, data) => {
@@ -88,7 +101,7 @@ server.on('request', (req, res) => {
 
 
 }); // server
-server.listen(3202);
+server.listen(8000);
 
 let extMimeType = {
   '.png': 'image/png',
